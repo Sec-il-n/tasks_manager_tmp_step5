@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <%# 検証 前回まで、パーシャルに記載　+if @taskでこちらへ移動 %>
+    <%= notice %>
+    <% if @task && @task.errors.any? %>
+      <p><%= @task.errors.count %> 件のエラーがあります。</p>
+      <% @task.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+      <% end %>
+    <% end %>
     <%= yield %>
+    <%= link_to '一覧', tasks_path %>
   </body>
 </html>

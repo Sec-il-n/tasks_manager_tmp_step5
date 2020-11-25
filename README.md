@@ -7,9 +7,6 @@
       * email : string
       * password :string
 
-      * task_id : integer
-      * lable_id : integer
-
   * Task
     * columns: & data type:
       * task_neme : string
@@ -19,8 +16,13 @@
       * priority : integer <!-- 選択肢から数値変換してdb保存 (->優先順位、終了期限を元にしてソート)-->
       * status : string ? <!-- 未着手・着手・完了 -->
       (use [select box](https://railsguides.jp/form_helpers.html#%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E6%89%B1%E3%81%86%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9) ?)
-
+      * user_id
 
   * Label
     * columns: & data type:
       * label_name
+      * user_id
+
+  * Manager
+    * task_id : integer
+    * lable_id : integer
