@@ -1,24 +1,28 @@
-# README
+# DB scheme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* models:
+  * User
+    * columns: & data type:
+      * user_name : string
+      * email : string
+      * password :string
 
-Things you may want to cover:
+  * Task
+    * columns: & data type:
+      * task_neme : string
+      * details　: string
+      <!-- 以下3カラムはvalidates < GUIから選択式(←の実装が容易であれば) -->
+      * valid : string ? (received by [date picker](https://diver.diveintocode.jp/curriculums/339) & needs validation of　regular expression ?)
+      * priority : integer <!-- 選択肢から数値変換してdb保存 (->優先順位、終了期限を元にしてソート)-->
+      * status : string ? <!-- 未着手・着手・完了 -->
+      (use [select box](https://railsguides.jp/form_helpers.html#%E3%83%A2%E3%83%87%E3%83%AB%E3%82%92%E6%89%B1%E3%81%86%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9) ?)
+      * user_id
 
-* Ruby version
+  * Label
+    * columns: & data type:
+      * label_name
+      * user_id
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  * Manager
+    * task_id : integer
+    * lable_id : integer
