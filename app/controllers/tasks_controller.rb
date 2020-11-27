@@ -17,7 +17,6 @@ class TasksController < ApplicationController
 
   end
   def show
-
     # @tasks = Task.find_by(user_id: login_user)
   end
   def edit
