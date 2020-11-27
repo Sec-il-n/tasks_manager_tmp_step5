@@ -13,8 +13,11 @@ class TasksController < ApplicationController
     end
   end
   def index
-    @tasks = Task.all
-
+    if params[:order] == 'asc'
+      @tasks = Task.order(created_at: :ASC)
+    else
+      @tasks = Task.order(created_at: :DESC)
+    end
   end
   def show
     # @tasks = Task.find_by(user_id: login_user)
