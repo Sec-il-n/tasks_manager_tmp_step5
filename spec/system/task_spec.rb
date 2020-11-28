@@ -22,13 +22,17 @@ RSpec.describe Task, type: :system do
     end
     context '一覧画面表示されたとき' do
       it '作成日時の降順で表示される' do
-        task = FactoryBot.create_list(:task_3, 2)
-        # task1 = FactoryBot.create(:task_3)
-        # task2 = FactoryBot.create(:task_3)
+        task = FactoryBot.create_list(:task_3, 10)
         visit tasks_path
         # 画面内の指定クラスの要素を配列で取得する
-        task_list = all('#sequence td')
-        expect(task_list[0].text).to have_content(task[1].task_name)
+        # task_list = all('#sequence td')
+        task_list = all('#sequence #task_name')
+        # expect(task_list[0].text).to have_content(task[1].task_name)
+        j = 9
+        for i in 0..9
+          expect(task_list[i].text).to have_content(task[j].task_name)
+          j -= 1
+        end
         # expect(task_list[0]).to include(task[1])
         # expect(task_list[0]).to have_text(task.task_name)
         # expect(page).to have_content(task_list[1])
