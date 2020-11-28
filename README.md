@@ -34,8 +34,7 @@
 
   * Setting in rails app
     * for 'AssetsPipeline'
-      * add `config.assets.compile = true` on to `/config/environments/development.rb
-`
+      ~~* add `config.assets.compile = true` on to `/config/environments/development.rb`~~
       * run `rails assets:precompile RAILS_ENV=production`
 
   * Create app in Heroku

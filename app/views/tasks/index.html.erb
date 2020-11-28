@@ -25,7 +25,7 @@
     </tr>
     <% @tasks.each do |task| %>
     <tr id="sequence">
-        <td><%= task.task_name %></td>
+        <td id="task_name"><%= task.task_name %></td>
         <td><%= task.details %></td>
         <td><%= task.created_at %></td>
         <td><%= task.valid_date %></td>
