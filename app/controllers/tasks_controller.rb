@@ -13,8 +13,10 @@ class TasksController < ApplicationController
     end
   end
   def index
-    if params[:order] == 'asc'
-      @tasks = Task.order(created_at: :ASC)
+    if params[:order_valid]
+      # @tasks = Task.order(created_at: :DESC).sort_by!{ |task| task.valid_date }
+      @tasks = Task.sort(valid_date: :ASC)
+      # @tasks = Task.sort_by!{ |task| task.valid_date }
     else
       @tasks = Task.order(created_at: :DESC)
     end
