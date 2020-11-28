@@ -57,7 +57,7 @@
     * need to `heroku config:set <Environment variable>=<value>` if you need.
 
 # lists of versions
-
-     * pg (1.2.3)
-     * rails (5.2.4.4)
-     * puma (3.12.6)
+  * ruby (2.6.5)
+  * pg (1.2.3)
+  * rails (5.2.4.4)
+  * puma (3.12.6)
