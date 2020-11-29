@@ -14,14 +14,9 @@ class TasksController < ApplicationController
   end
   def index
     @tasks = Task.order(created_at: :DESC)
-    # if params[:order_valid]
-    #   @tasks = Task.sort(valid_date: :ASC)
-    # else
-    #   @tasks = Task.order(created_at: :DESC)
-    # end
   end
   def show
-    # @tasks = Task.find_by(user_id: login_user)
+
   end
   def edit
 
@@ -41,7 +36,6 @@ class TasksController < ApplicationController
       flash.now[:danger] = %(タスクの削除に失敗しました。)
       render :index
     end
-
   end
   private
   def set_task
@@ -49,6 +43,5 @@ class TasksController < ApplicationController
   end
   def task_params
     params.require(:task).permit(:task_name, :details)
-    # params.require(:task).permit(:task_name, :details, :priority, :valid)
   end
 end

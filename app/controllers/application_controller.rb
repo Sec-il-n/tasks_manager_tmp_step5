@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # 以下Concerns？？
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
   private
