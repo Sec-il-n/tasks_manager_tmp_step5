@@ -31,7 +31,7 @@
     * lable_id : integer
 
 # How to deploy to Heroku
-
+**Need to be done only once at firsttime deployment**
   * Setting in rails app
     * for 'AssetsPipeline'
 
@@ -46,15 +46,16 @@
         `heroku buildpacks:add --index 1 heroku/nodejs`
         (「1」for if you want to include this buildpack at first)
 
-  * Deploy to Heroku
-    * (check with`git remote -v` if remote has been set, then)
-    `git add <. or file_name>`
-    `git commit -m'<commit_messages>'`
-    `git push heroku master`
-
   * Migrate DB
     * (if you haven't) add `gem 'pg'` on to Gemfile.
     * run `heroku run rails db:migrate`
+
+**Need to be done each deployment**
+  * Deploy to Heroku
+    * (check with`git remote -v` if remote has been set, then)<br>
+    `git add <. or file_name>`<br>
+    `git commit -m'<commit_messages>'`<br>
+    `git push heroku master`<br>
 
   * The other settings
     * need to `heroku config:set <Environment variable>=<value>` if you need.
