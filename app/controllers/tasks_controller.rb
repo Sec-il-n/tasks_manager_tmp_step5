@@ -33,7 +33,7 @@ class TasksController < ApplicationController
     end
   end
   def show
-    # @tasks = Task.find_by(user_id: login_user)
+
   end
   def edit
 
@@ -53,15 +53,18 @@ class TasksController < ApplicationController
       flash.now[:danger] = %(タスクの削除に失敗しました。)
       render :index
     end
-
   end
   private
   def set_task
     @task = Task.find_by(id: params[:id])
   end
   def task_params
+<<<<<<< HEAD
     params.require(:task).permit(:task_name, :details, :valid_date, :status)
     # params.require(:task).permit(:task_name, :details, :priority, :valid)
+=======
+    params.require(:task).permit(:task_name, :details)
+>>>>>>> step２修正コメント除去
   end
   # def valid_date?
   #   today = Date.current
