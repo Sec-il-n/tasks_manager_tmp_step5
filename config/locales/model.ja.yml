@@ -6,6 +6,7 @@ ja:
       task:
         task_name: タスク名
         details: 詳細
+        valid_date: 終了期限
 # ja:
 #   activerecord:
 #     attributes:

@@ -1,13 +1,14 @@
 <%= form_with(model:task, local: true, url: choose_path)do |f|  %>
   <%= f.hidden_field :task_name %>
   <%= f.hidden_field :details %>
+  <%= f.hidden_field :valid %>
   <%= f.label :task_name %><br>
   <%= f.text_field :task_name %><br>
   <%= f.label :details %><br>
   <%= f.text_area :details %><br>
 
-  <%= f.label :valid %><br>
-  <%= f.date_field :valid %><br>
+  <%= f.label :valid_date %><br>
+  <%= f.date_field :valid_date %><br>
 
   <%= f.submit '登録する' %>
 <% end %>

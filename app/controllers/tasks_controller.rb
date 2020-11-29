@@ -5,12 +5,20 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.create(task_params)
+    # today = Date.current
+    # if @task.valid_date >= today
+    # # if valid_date?
+    #   redirect_to tasks_path
+    # else
+    #   render :new
+    # end
     if @task.save
       redirect_to task_path(@task.id),notice: %(タスクを登録しました。)
     else
       flash.now[:danger] = %(タスクの登録に失敗しました。)
       render :new
     end
+    # end
   end
   def index
     if params[:order] == 'asc'
@@ -47,7 +55,13 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
   end
   def task_params
-    params.require(:task).permit(:task_name, :details)
+    params.require(:task).permit(:task_name, :details, :valid_date)
     # params.require(:task).permit(:task_name, :details, :priority, :valid)
   end
+  # def valid_date?
+  #   today = Date.current
+  #   @task.valid_date >= today
+  #     # flash.now[:danger] = %(今日以降の日付を設定してください。)
+  #     # render :new
+  # end
 end
