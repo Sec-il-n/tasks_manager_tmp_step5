@@ -13,13 +13,12 @@ class TasksController < ApplicationController
     end
   end
   def index
-    if params[:order_valid]
-      # @tasks = Task.order(created_at: :DESC).sort_by!{ |task| task.valid_date }
-      @tasks = Task.sort(valid_date: :ASC)
-      # @tasks = Task.sort_by!{ |task| task.valid_date }
-    else
-      @tasks = Task.order(created_at: :DESC)
-    end
+    @tasks = Task.order(created_at: :DESC)
+    # if params[:order_valid]
+    #   @tasks = Task.sort(valid_date: :ASC)
+    # else
+    #   @tasks = Task.order(created_at: :DESC)
+    # end
   end
   def show
     # @tasks = Task.find_by(user_id: login_user)

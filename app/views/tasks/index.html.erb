@@ -2,9 +2,9 @@
 <table>
   <thead>
     <tr>
-      <th>タスク</th>
-      <th>詳細</th>
-      <th>作成日時</th>
+      <th><%= t('.task_name') %></th>
+      <th><%= t('.details') %></th>
+      <th><%= t('.created_at') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,4 +21,3 @@
   </tbody>
 </table>
 <%= link_to '新規', new_task_path %> |
-<!-- link_to '日時昇順', tasks_path(order: 'asc')  -->
