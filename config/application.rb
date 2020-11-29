@@ -10,6 +10,8 @@ module TasksManagement
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
     config.generators do |g|
       # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化(今回は使用するので不要)
       # g.factory_bot false

@@ -7,9 +7,11 @@ RSpec.describe Task, type: :system do
         visit current_path
         fill_in 'タスク名', with: 'task_name'
         fill_in '詳細', with: 'task_details'
+        fill_in '終了期限', with: "#{ Date.current += 1 }"
         click_button '登録する'
         expect(page).to have_content('task_name')
         expect(page).to have_content('task_details')
+        expect(page).to have_content("#{ Date.current += 1 }")
     end
   end
   describe '一覧表示機能'
