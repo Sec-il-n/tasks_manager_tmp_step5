@@ -59,7 +59,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
   end
   def task_params
-    params.require(:task).permit(:task_name, :details, :valid_date)
+    params.require(:task).permit(:task_name, :details, :valid_date, :status)
     # params.require(:task).permit(:task_name, :details, :priority, :valid)
   end
   # def valid_date?

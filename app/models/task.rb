@@ -3,6 +3,7 @@ class Task < ApplicationRecord
     validates :task_name, length:{ maximum:60 }
     validates :details, length:{ maximum:255 }
     validates :valid_date
+    validates :status
   end
   validate :not_before_today
   # validates :priority
