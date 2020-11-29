@@ -2,12 +2,19 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th>タスク</th>
       <th>詳細</th>
       <th>作成日時</th>
       <th>終了期限</th>
       <th>ステータス</th>
       <th colspan="5"></th>
+=======
+      <th><%= t('.task_name') %></th>
+      <th><%= t('.details') %></th>
+      <th><%= t('.created_at') %></th>
+      <th colspan="3"></th>
+>>>>>>> step2修正2回目(タイムゾーン、I18n)
     </tr>
   </thead>
   <tbody>
@@ -37,4 +44,7 @@
   </tbody>
 </table>
 <%= link_to '新規', new_task_path %> |
+<<<<<<< HEAD
 <%= link_to '終了期限でソートする', tasks_path(order_valid: 'valid_date') %>
+=======
+>>>>>>> step2修正2回目(タイムゾーン、I18n)
