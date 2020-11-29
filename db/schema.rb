@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_11_29_141049) do
-=======
-ActiveRecord::Schema.define(version: 2020_11_29_002622) do
->>>>>>> 終了期限モデル日本語化、バリデーション 追加
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,10 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_002622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "valid_date", null: false
-<<<<<<< HEAD
     t.string "status", default: "", null: false
-=======
->>>>>>> 終了期限モデル日本語化、バリデーション 追加
   end
 
 end
