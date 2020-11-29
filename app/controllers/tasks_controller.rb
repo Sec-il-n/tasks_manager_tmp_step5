@@ -59,12 +59,8 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
   end
   def task_params
-<<<<<<< HEAD
     params.require(:task).permit(:task_name, :details, :valid_date, :status)
     # params.require(:task).permit(:task_name, :details, :priority, :valid)
-=======
-    params.require(:task).permit(:task_name, :details)
->>>>>>> step２修正コメント除去
   end
   # def valid_date?
   #   today = Date.current
