@@ -1,0 +1,10 @@
+ja:
+  tasks:
+    index:
+      title: タスク一覧
+      task_name: タスク名
+      details: 詳細
+      created_at: 作成日時
+    # new:
+    #   title: 新規登録
+    # edit:

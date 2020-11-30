@@ -3,7 +3,6 @@ describe 'タスクモデル機能', type: :model do
   describe '入力項目バリデーション' do
     context 'タスクのタイトルが空のとき' do
       it 'バリデーションに引っかかる' do
-        # task = Task.new(task_name: '', details: 'タスク名空 バリデーション')
         task = FactoryBot.build(:task_2, task_name: '', details: 'タスク名空 バリデーション')
         task.valid?
         expect(task.errors.full_messages).to include('タスク名を入力してください')
