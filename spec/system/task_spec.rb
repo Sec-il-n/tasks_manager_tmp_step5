@@ -30,6 +30,7 @@ RSpec.describe Task, type: :system do
           expect(task_list[i].text).to have_content(task[j].task_name)
           j -= 1
         end
+
       end
     end
   end
