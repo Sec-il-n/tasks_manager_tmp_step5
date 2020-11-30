@@ -27,6 +27,7 @@ group :development, :test do
   gem 'faker'
   gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-nav'
   gem 'pry-rails'
 end
 

@@ -11,6 +11,18 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+      <%= form_with(url:tasks_path, locale:true, method: 'get')do |f| %>
+        <%= f.select :status, [['未着手','未着手'],['着手中','着手中'],['完了','完了']], include_blank: '選択して下さい' %><br>
+        <%= f.submit 're-order' %>
+      <% end %>
+      </td>
+    </tr>
     <% @tasks.each do |task| %>
     <tr id="sequence">
         <td><%= task.task_name %></td>
