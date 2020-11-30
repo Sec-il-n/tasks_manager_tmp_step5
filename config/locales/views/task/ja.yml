@@ -5,6 +5,20 @@ ja:
       task_name: タスク名
       details: 詳細
       created_at: 作成日時
-    # new:
-    #   title: 新規登録
-    # edit:
+      valid_date: 終了期限
+      status: ステータス
+      edit: 編集
+      delete: 削除
+      search: 検索
+      create new: 新規
+      Not started: 未着手
+      Already started: 着手中
+      done: 完了
+      select: 選択して下さい
+      sort by valid: 終了期限でソートする
+    form:
+      create new: 新規
+      Not started: 未着手
+      Already started: 着手中
+      done: 完了
+      select: 選択して下さい

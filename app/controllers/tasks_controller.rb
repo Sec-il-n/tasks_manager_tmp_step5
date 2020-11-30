@@ -25,8 +25,7 @@ class TasksController < ApplicationController
     if params[:order_valid]
       # @tasks = Task.sort_by{ |task| task.valid_date }
       @tasks = @tasks.sort_by{ |task| task.valid_date }
-    end
-    if params[:status]
+    elsif params[:status]
       # binding.pry
       @tasks = @tasks.where(status: params[:status])
       # @tasks = Task.where(status: params[:status])
@@ -60,12 +59,8 @@ class TasksController < ApplicationController
   end
   def task_params
     params.require(:task).permit(:task_name, :details, :valid_date, :status)
-    # params.require(:task).permit(:task_name, :details, :priority, :valid)
   end
-  # def valid_date?
-  #   today = Date.current
-  #   @task.valid_date >= today
-  #     # flash.now[:danger] = %(今日以降の日付を設定してください。)
-  #     # render :new
+  # def search_params
+  #   params.fetch(:search).permit()
   # end
 end

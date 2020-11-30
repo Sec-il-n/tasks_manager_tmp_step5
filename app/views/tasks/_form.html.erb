@@ -1,7 +1,8 @@
 <%= form_with(model:task, local: true, url: choose_path)do |f|  %>
   <%= f.hidden_field :task_name %>
   <%= f.hidden_field :details %>
-  <%= f.hidden_field :valid %>
+  <%= f.hidden_field :valid_date %>
+  <%= f.hidden_field :status %>
   <%= f.label :task_name %><br>
   <%= f.text_field :task_name %><br>
   <%= f.label :details %><br>
@@ -9,8 +10,6 @@
   <%= f.label :valid_date %><br>
   <%= f.date_field :valid_date %><br>
   <%= f.label :status %><br>
-  <%# <%= f.select :status, [['Not started','未着手'],['On the way','着手中'],['Done','完了']], include_blank: '選択して下さい' %><br>
-  <%= f.select :status, [['未着手','未着手'],['着手中','着手中'],['完了','完了']], include_blank: '選択して下さい' %><br>
-
+  <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %><br>
   <%= f.submit %>
 <% end %>

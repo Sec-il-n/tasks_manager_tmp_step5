@@ -2,34 +2,13 @@
 <table>
   <thead>
     <tr>
-<<<<<<< HEAD
       <th><%= t('.task_name') %></th>
       <th><%= t('.details') %></th>
       <th><%= t('.created_at') %></th>
       <th colspan="3"></th>
-=======
-      <th>タスク</th>
-      <th>詳細</th>
-      <th>作成日時</th>
-      <th>終了期限</th>
-      <th>ステータス</th>
-      <th colspan="5"></th>
->>>>>>> ステータス登録機能の追加
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-      <%= form_with(url:tasks_path, locale:true, method: 'get')do |f| %>
-        <%= f.select :status, [['未着手','未着手'],['着手中','着手中'],['完了','完了']], include_blank: '選択して下さい' %><br>
-        <%= f.submit 're-order' %>
-      <% end %>
-      </td>
-    </tr>
     <% @tasks.each do |task| %>
     <tr id="sequence">
         <td id="task_name"><%= task.task_name %></td>
