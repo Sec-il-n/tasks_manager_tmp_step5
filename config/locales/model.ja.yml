@@ -10,7 +10,6 @@ ja:
         status: ステータス
 # ja:
 #   activerecord:
->>>>>>> 終了期限モデル日本語化、バリデーション 追加
 #     attributes:
 #       property:
 #         name: 物件名

@@ -1,26 +1,40 @@
-<h1>タスク一覧</h1>
+<h1><%= t('.title') %></h1>
 <table>
   <thead>
     <tr>
       <th><%= t('.task_name') %></th>
       <th><%= t('.details') %></th>
       <th><%= t('.created_at') %></th>
-      <th colspan="3"></th>
+      <th><%= t('.valid_date') %></th>
+      <th><%= t('.status') %></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+      <%= form_with(url:tasks_path, locale:true, method: 'get')do |f| %>
+        <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %><br>
+        <%= f.submit t('.search') %>
+      <% end %>
+      </td>
+    </tr>
     <% @tasks.each do |task| %>
     <tr id="sequence">
-        <td id="task_name"><%= task.task_name %></td>
+        <td><%= task.task_name %></td>
         <td><%= task.details %></td>
         <td><%= task.created_at %></td>
         <td><%= task.valid_date %></td>
         <td><%= task.status %></td>
-        <td><%= link_to '編集', edit_task_path(task.id) %></td>
-        <td><%= link_to '削除', task_path(task.id), method: :delete %></td>
+        <td><%= link_to t('.edit'), edit_task_path(task.id) %></td>
+        <td><%= link_to t('.delete'), task_path(task.id), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to '新規', new_task_path %> |
-<%= link_to '終了期限でソートする', tasks_path(order_valid: 'valid_date') %>
+<%= link_to t('.create new'), new_task_path %> |
+<%= link_to t('.sort by valid'), tasks_path(order_valid: 'valid_date') %>
