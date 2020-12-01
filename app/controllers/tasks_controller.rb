@@ -22,13 +22,23 @@ class TasksController < ApplicationController
   end
   def index
     @tasks = Task.order(created_at: :DESC)
-    if params[:order_valid]
-      # @tasks = Task.sort_by{ |task| task.valid_date }
+    if params[:order_valid].present?
+      # ✖︎　Task.sort_by{ |task| task.valid_date }
       @tasks = @tasks.sort_by{ |task| task.valid_date }
+    end
+
+    if params[:status] && params[:task_name]
+      @tasks = @tasks.where(status: params[:status])
+      .where('task_name LIKE?',"%#{params[:task_name]}%")
+
+    elsif params[:task_name]
+      # binding.pry
+      @tasks = Task.where('task_name LIKE?',"%#{params[:task_name]}%")
     elsif params[:status]
       # binding.pry
-      @tasks = @tasks.where(status: params[:status])
-      # @tasks = Task.where(status: params[:status])
+      @tasks = Task.where(status: params[:status])
+    # else
+    #   @tasks = Task.order(created_at: :DESC)
     end
   end
   def show

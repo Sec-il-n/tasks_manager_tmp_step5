@@ -7,23 +7,25 @@
       <th><%= t('.created_at') %></th>
       <th><%= t('.valid_date') %></th>
       <th><%= t('.status') %></th>
-      <th colspan="5"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
       <td>
-      <%= form_with(url:tasks_path, locale:true, method: 'get')do |f| %>
-        <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %><br>
-        <%= f.submit t('.search') %>
+      <%= form_with(scope: :search, url:tasks_path, locale:true, method: 'get')do |f| %>
+      <%# <%= form_with(url:tasks_path, locale:true, method: 'get')do |f| %>
+        <%= f.text_field :task_name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %></td>
+        <td><%= f.submit t('.search') %></td>
+        <br>
       <% end %>
-      </td>
     </tr>
     <% @tasks.each do |task| %>
+    <%# <% binding.pry %>
     <tr id="sequence">
         <td><%= task.task_name %></td>
         <td><%= task.details %></td>
