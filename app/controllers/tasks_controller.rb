@@ -21,24 +21,27 @@ class TasksController < ApplicationController
     # end
   end
   def index
-    @tasks = Task.order(created_at: :DESC)
+    # @tasks = Task.order(created_at: :DESC)
+    @tasks = Task.recent
     if params[:order_valid].present?
-      # ✖︎　Task.sort_by{ |task| task.valid_date }
       @tasks = @tasks.sort_by{ |task| task.valid_date }
     end
+    # @tasks = sort_valid(Task.recent, params[:order_valid])
+    # @tasks = sort_valid(@tasks, params[:order_valid])
 
     if params[:status] && params[:task_name]
-      @tasks = @tasks.where(status: params[:status])
-      .where('task_name LIKE?',"%#{params[:task_name]}%")
+      @tasks = @tasks.search_status(params[:status]).search_name_like(params[:task_name])
+      # @tasks = @tasks.where(status: params[:status])
+      # .where('task_name LIKE?',"%#{params[:task_name]}%")
 
     elsif params[:task_name]
       # binding.pry
-      @tasks = Task.where('task_name LIKE?',"%#{params[:task_name]}%")
-    elsif params[:status]
-      # binding.pry
-      @tasks = Task.where(status: params[:status])
-    # else
-    #   @tasks = Task.order(created_at: :DESC)
+      # @tasks = Task.where('task_name LIKE ?', "%#{params[:task_name]}%")
+      @tasks = Task.search_name_like(params[:task_name])
+      
+    elsif params[:status]#.present?
+      # @tasks = Task.where(status: params[:status])
+      @tasks = Task.search_status(params[:status])
     end
   end
   def show
@@ -71,6 +74,6 @@ class TasksController < ApplicationController
     params.require(:task).permit(:task_name, :details, :valid_date, :status)
   end
   # def search_params
-  #   params.fetch(:search).permit()
+  #   params.fetch(:search, {}).permit(:task_name, :status)
   # end
 end

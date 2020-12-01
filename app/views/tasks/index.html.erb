@@ -13,8 +13,8 @@
   <tbody>
     <tr>
       <td>
-      <%= form_with(scope: :search, url:tasks_path, locale:true, method: 'get')do |f| %>
-      <%# <%= form_with(url:tasks_path, locale:true, method: 'get')do |f| %>
+      <%# <%= form_with(scope: :search, url: tasks_path, local: true, method: 'get')do |f| %>
+      <%= form_with(url: tasks_path, local: true, method: 'get')do |f| %>
         <%= f.text_field :task_name %></td>
         <td></td>
         <td></td>

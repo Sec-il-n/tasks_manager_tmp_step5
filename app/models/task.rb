@@ -4,11 +4,17 @@ class Task < ApplicationRecord
     validates :details, length:{ maximum:255 }
     validates :valid_date
     validates :status
+  # validates :priority
   end
   validate :not_before_today
-  # validates :priority
-  # validates :status
   def not_before_today
     errors.add(:valid_date, 'は今日以降の日付を選択してください。') if valid_date.nil? || valid_date < Date.current
   end
+  scope :recent, -> { order(created_at: :DESC) }
+  scope :search_status, -> (status) { where(status: status) }
+  scope :search_name_like, -> (name) { where('task_name LIKE ?', "%#{name}%") }
+  # scope :search_status_and_name, ->(status, name) do
+  #    return if status.nill? || name.nil?
+  #    where(status: status).where('task_name LIKE?',"%#{name}%")
+  # end
 end
