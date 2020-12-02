@@ -26,20 +26,18 @@ class TasksController < ApplicationController
     if params[:order_valid].present?
       @tasks = @tasks.sort_by{ |task| task.valid_date }
     end
-    # @tasks = sort_valid(Task.recent, params[:order_valid])
-    # @tasks = sort_valid(@tasks, params[:order_valid])
 
-    if params[:status] && params[:task_name]
+    if params[:status].present? && params[:task_name].present?
       @tasks = @tasks.search_status(params[:status]).search_name_like(params[:task_name])
       # @tasks = @tasks.where(status: params[:status])
       # .where('task_name LIKE?',"%#{params[:task_name]}%")
 
-    elsif params[:task_name]
+    elsif params[:task_name].present?
       # binding.pry
       # @tasks = Task.where('task_name LIKE ?', "%#{params[:task_name]}%")
       @tasks = Task.search_name_like(params[:task_name])
-      
-    elsif params[:status]#.present?
+
+    elsif params[:status].present?
       # @tasks = Task.where(status: params[:status])
       @tasks = Task.search_status(params[:status])
     end
