@@ -25,4 +25,11 @@ FactoryBot.define do
     created_at { '2020-11-29' }
     valid_date { Date.curent += 10 }
   end
+  factory :task_5, class: Task do
+    task_name { "#{(a..z).to_a.shuffle[0..9]}" }
+    details { 'テスト_詳細' }
+    status { "#{[t('Not started'), t('Already started'), t('done')].sample}" }
+    created_at { Time.current }
+    valid_date { Date.curent += 10 }
+  end
 end

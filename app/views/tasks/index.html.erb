@@ -1,4 +1,10 @@
 <h1><%= t('.title') %></h1>
+<%# <%= form_with(scope: :search, url: tasks_path, local: true, method: 'get')do |f| %>
+<%= form_with(url: tasks_path, local: true, method: 'get')do |f| %>
+  <%= f.text_field :task_name %><br>
+  <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %><br>
+  <%= f.submit t('.search') %><br>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -11,19 +17,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-      <%# <%= form_with(scope: :search, url: tasks_path, local: true, method: 'get')do |f| %>
-      <%= form_with(url: tasks_path, local: true, method: 'get')do |f| %>
-        <%= f.text_field :task_name %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %></td>
-        <td><%= f.submit t('.search') %></td>
-        <br>
-      <% end %>
-    </tr>
     <% @tasks.each do |task| %>
     <%# <% binding.pry %>
     <tr id="sequence">
