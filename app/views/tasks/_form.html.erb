@@ -10,7 +10,6 @@
   <%= f.label :valid_date %><br>
   <%= f.date_field :valid_date %><br>
   <%= f.label :status %><br>
-  <%# <%= f.select :status, [[t('.Not started'), t('.Not started')],[t('.Already started'), t('.Already started')],[t('.done'), t('.done')], include_blank: t('.select') %><br>
   <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %><br>
   <%= f.submit %>
 <% end %>

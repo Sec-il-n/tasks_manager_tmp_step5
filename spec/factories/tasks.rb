@@ -10,26 +10,42 @@ FactoryBot.define do
   sequence :task_name_sequence do |n|
     "タスク#{n}"
   end
-  # sequence :task_valid_sequence do |n|
-  #   Date.curent += n
-  # end
+  sequence :task_valid_sequence do |n|
+    Time.current.since(n.days)
+  end
   factory :task_3, class: Task do
     task_name { generate :task_name_sequence }
     details { 'テスト_詳細3' }
     created_at { Time.current }
-    # valid_date { generate :task_valid_sequence }
+    # status { "未着手" }
+    status { "#{["未着手", "着手中", "完了"].sample}" }
+    valid_date { generate :task_valid_sequence }
+    # valid_date { '002020-12-18' }
   end
   factory :task_4, class: Task do
     task_name { generate :task_name_sequence }
     details { 'テスト_詳細3' }
-    created_at { '2020-11-29' }
-    valid_date { Date.curent += 10 }
+    created_at { "#{5.days.ago}" }
+    # ✖︎　created_at { '2020-11-29' }
+    valid_date { "#{Time.current.since(10.days)}"  }
+    # valid_date { Time.current += 10 }
   end
   factory :task_5, class: Task do
-    task_name { "#{(a..z).to_a.shuffle[0..9]}" }
+    # task_name = [*'a'..'z'].shuffle[0..9]
+    # # task_name = ('a'..'z').to_a.shuffle[0..9]
+    # task_name { "#{task_name}" }
+    task_name { 'タスク' }
     details { 'テスト_詳細' }
-    status { "#{[t('Not started'), t('Already started'), t('done')].sample}" }
-    created_at { Time.current }
-    valid_date { Date.curent += 10 }
+    #
+    status { "#{["未着手", "着手中", "完了"].sample}" }
+    # status { "#{[t('Not started'), t('Already started'), t('done')].sample}" }
+    # valid_date { "00#{Time.current.since(10.days)}"  }
+    valid_date { '002020-12-18'  }
+  end
+  factory :task_6, class: Task do
+    task_name { 'タスク234' }
+    details { 'テスト_詳細' }
+    status { "#{I18n.t('.dictionary.words.Not started')}" }
+    valid_date { '002020-12-18'  }
   end
 end
