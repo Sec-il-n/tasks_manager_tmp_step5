@@ -46,7 +46,6 @@ describe 'タスクモデル機能', type: :model do
       it '指定したタイトルとステータスの両方で絞り込まれる'do
         results_status = Task.search_status(not_started).search_name_like('task').map(&:status)
         results_name = Task.search_status(not_started).search_name_like('task').map(&:task_name)
-        binding.pry
         expect(results_status).to all( include(not_started))
         expect(results_name).to all( include('task'))
         # ✖︎　result.task_name

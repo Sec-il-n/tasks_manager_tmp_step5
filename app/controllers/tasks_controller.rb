@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  PAR = 10
   before_action :set_task, only:[:show, :edit, :update, :destroy]
   def new
     @task = Task.new
@@ -13,23 +14,24 @@ class TasksController < ApplicationController
     end
   end
   def index
-    @tasks = Task.recent
+      @tasks = Task.recent.page(params[:page]).per(PAR)
+
     if params[:order_valid].present?
       @tasks = @tasks.sort_by{ |task| task.valid_date }
-    end
 
-    if params[:status].present? && params[:task_name].present?
+    elsif params[:status].present? && params[:task_name].present?
       @tasks = @tasks.search_status(params[:status]).search_name_like(params[:task_name])
 
     elsif params[:task_name].present?
-      @tasks = Task.search_name_like(params[:task_name])
+      @tasks = @tasks.search_name_like(params[:task_name])
 
     elsif params[:status].present?
-      @tasks = Task.search_status(params[:status])
+      @tasks = @tasks.search_status(params[:status])
 
     elsif params[:order_priority].present?
-      @tasks = Task.order_priority
+      @tasks = Task.order_priority.page(params[:page].per(PAR))
     end
+    
   end
   def show
 

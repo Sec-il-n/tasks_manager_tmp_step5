@@ -32,7 +32,8 @@
     </tr>
     <% end %>
   </tbody>
-</table>
+</table><br>
+<%= paginate @tasks %> 
 <%= link_to t('.create new'), new_task_path %> |
 <%= link_to t('.sort by valid'), tasks_path(order_valid: 'valid_date') %> |
 <%= link_to t('.sort by priority'), tasks_path(order_priority: 'priority') %>
