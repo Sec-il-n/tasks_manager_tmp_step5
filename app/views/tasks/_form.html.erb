@@ -11,5 +11,7 @@
   <%= f.date_field :valid_date %><br>
   <%= f.label :status %><br>
   <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select') %><br>
+  <%= f.label :priority %><br>
+  <%= f.select :priority, { t('.dictionary.words.high') => 2, t('.dictionary.words.middle') => 1, t('.dictionary.words.low') => 0 }, { include_blank: true } %><br>
   <%= f.submit %>
 <% end %>

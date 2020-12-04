@@ -5,23 +5,14 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.create(task_params)
-    # today = Date.current
-    # if @task.valid_date >= today
-    # # if valid_date?
-    #   redirect_to tasks_path
-    # else
-    #   render :new
-    # end
     if @task.save
       redirect_to task_path(@task.id),notice: %(タスクを登録しました。)
     else
       flash.now[:danger] = %(タスクの登録に失敗しました。)
       render :new
     end
-    # end
   end
   def index
-    # @tasks = Task.order(created_at: :DESC)
     @tasks = Task.recent
     if params[:order_valid].present?
       @tasks = @tasks.sort_by{ |task| task.valid_date }
@@ -29,17 +20,15 @@ class TasksController < ApplicationController
 
     if params[:status].present? && params[:task_name].present?
       @tasks = @tasks.search_status(params[:status]).search_name_like(params[:task_name])
-      # @tasks = @tasks.where(status: params[:status])
-      # .where('task_name LIKE?',"%#{params[:task_name]}%")
 
     elsif params[:task_name].present?
-      # binding.pry
-      # @tasks = Task.where('task_name LIKE ?', "%#{params[:task_name]}%")
       @tasks = Task.search_name_like(params[:task_name])
 
     elsif params[:status].present?
-      # @tasks = Task.where(status: params[:status])
       @tasks = Task.search_status(params[:status])
+
+    elsif params[:order_priority].present?
+      @tasks = Task.order_priority
     end
   end
   def show

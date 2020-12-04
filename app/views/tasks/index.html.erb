@@ -14,19 +14,19 @@
       <th><%= t('.created_at') %></th>
       <th><%= t('.valid_date') %></th>
       <th><%= t('.status') %></th>
+      <th><%= t('.priority') %></th>
       <th colspan="6"></th>
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
-    <%# <% binding.pry %>
     <tr id="sequence">
         <td id="task_name"><%= task.task_name %></td>
         <td><%= task.details %></td>
         <td><%= task.created_at %></td>
         <td><%= task.valid_date %></td>
         <td id="status_shown"><%= task.status %></td>
-        <!-- <td><%= task.status %></td> -->
+        <td><%= task.priority %></td>
         <td><%= link_to t('.edit'), edit_task_path(task.id) %></td>
         <td><%= link_to t('.delete'), task_path(task.id), method: :delete %></td>
     </tr>
@@ -34,4 +34,5 @@
   </tbody>
 </table>
 <%= link_to t('.create new'), new_task_path %> |
-<%= link_to t('.sort by valid'), tasks_path(order_valid: 'valid_date') %>
+<%= link_to t('.sort by valid'), tasks_path(order_valid: 'valid_date') %> |
+<%= link_to t('.sort by priority'), tasks_path(order_priority: 'priority') %>

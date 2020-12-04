@@ -11,6 +11,7 @@ ja:
       Not started: 未着手
       Already started: 着手中
       done: 完了
+      priority: 優先順位
   activerecord:
     errors:
       messages:

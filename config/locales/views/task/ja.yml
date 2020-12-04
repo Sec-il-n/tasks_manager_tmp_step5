@@ -20,6 +20,7 @@ ja:
       hight: 高
       select: 選択して下さい
       sort by valid: 終了期限でソートする
+      sort by priority: 優先順位でソートする
     form:
       create new: 新規
       Not started: 未着手
