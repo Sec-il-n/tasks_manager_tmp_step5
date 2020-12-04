@@ -17,4 +17,11 @@ class Task < ApplicationRecord
   #    return if status.nill? || name.nil?
   #    where(status: status).where('task_name LIKE?',"%#{name}%")
   # end
+
+
+  enum priority:{
+    low: 0,
+    middle: 1,
+    high: 2
+  }
 end

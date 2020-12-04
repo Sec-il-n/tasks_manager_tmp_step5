@@ -8,6 +8,7 @@ ja:
         details: 詳細
         valid_date: 終了期限
         status: ステータス
+        priority: 優先順位
 # ja:
 #   activerecord:
 #     attributes:
