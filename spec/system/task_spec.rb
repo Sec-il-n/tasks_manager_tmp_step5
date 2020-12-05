@@ -15,7 +15,7 @@ RSpec.describe Task, type: :system do
         click_button '登録する'
         expect(page).to have_content('task_name')
         expect(page).to have_content('task_details')
-        expect(page).to have_content('2020-12-18')
+        expect(page).to have_content('2020/12/18')
         expect(page).to have_content('着手中')
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe Task, type: :system do
           visit tasks_path
           expect(page).to have_content('タスク')
           expect(page).to have_content('テスト_詳細')
-          expect(page).to have_content('2020-12-18')
+          expect(page).to have_content('2020/12/18')
           # expect(page).to have_content("#{Time.current.since(10.days)}")
         end
       end
@@ -91,7 +91,7 @@ RSpec.describe Task, type: :system do
            visit task_path(task.id)
            expect(page).to have_content('タスク')
            expect(page).to have_content('詳細上書き')
-           expect(page).to have_content('2020-12-18')
+           expect(page).to have_content('2020/12/18')
          end
        end
     end

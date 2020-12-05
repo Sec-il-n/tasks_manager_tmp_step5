@@ -18,7 +18,9 @@ ja:
       create new: 新規作成
       index: 一覧
     footer:
-
+  views:
+    pagination:
+      truncate: 
   activerecord:
     errors:
       messages:
