@@ -12,6 +12,13 @@ ja:
       Already started: 着手中
       done: 完了
       priority: 優先順位
+  layouts:
+    application:
+    header:
+      create new: 新規作成
+      index: 一覧
+    footer:
+
   activerecord:
     errors:
       messages:
