@@ -14,7 +14,7 @@
     <!-- <div class="form-group col-md-offset-1 col-md-6"> -->
       <%= f.label t('.status'), :class => 'control-label form_item' %>
       <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select'), :class => 'form-control' %>
-      <%= f.submit t('.search'), :class => 'btn-sm btn-primary active' %>
+      <%= f.submit t('.search'), :class => 'btn btn-primary btn-sm active' %>
       <%# <%= f.submit t('.search') %>
     </div>
   <% end %>
@@ -27,9 +27,11 @@
         <th><%= t('.task_name') %></th>
         <th><%= t('.details') %></th>
         <th><%= t('.created_at') %></th>
-        <th><%= t('.valid_date') %></th>
+        <!-- <th><%= t('.valid_date') %></th> -->
+        <th><%= link_to t('.valid_date'), tasks_path(order_valid: 'valid_date'), class: 'btn btn-default btn-sm btn-sort' %></th>
         <th><%= t('.status') %></th>
-        <th><%= t('.priority') %></th>
+        <!-- <th><%= t('.priority') %></th> -->
+        <th><%= link_to t('.priority'), tasks_path(order_priority: 'priority'), class: 'btn btn-default btn-sm btn-sort' %></th>
         <th colspan="6"></th>
       </tr>
     </thead>

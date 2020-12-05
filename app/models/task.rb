@@ -12,6 +12,7 @@ class Task < ApplicationRecord
   scope :recent, -> { order(created_at: :DESC) }
   scope :search_status, -> (status) { where(status: status) }
   scope :search_name_like, -> (name) { where('task_name LIKE ?', "%#{name}%") }
+  scope :order_valid, -> { order(valid: :ASC) }
   scope :order_priority, -> { order(priority: :DESC ) }
   # scope :search_status_and_name, ->(status, name) do
   #    return if status.nill? || name.nil?
