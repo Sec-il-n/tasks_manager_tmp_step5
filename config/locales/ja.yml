@@ -222,5 +222,6 @@ ja:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
+      # long_2: "%Y年%m月%d日(%a) %H時%M分"
       short: "%m/%d %H:%M"
     pm: 午後

@@ -7,6 +7,7 @@ ja:
       created_at: 作成日時
       valid_date: 終了期限
       status: ステータス
+      show: 詳細
       edit: 編集
       delete: 削除
       search: 検索
@@ -17,7 +18,7 @@ ja:
       priority: 優先順位
       low: 低
       middle: 中
-      hight: 高
+      high: 高
       select: 選択して下さい
       sort by valid: 終了期限でソートする
       sort by priority: 優先順位でソートする
@@ -28,3 +29,9 @@ ja:
       Already started: 着手中
       done: 完了
       select: 選択して下さい
+      low: 低
+      middle: 中
+      high: 高
+    show:
+      index: 一覧
+      
