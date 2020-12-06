@@ -21,6 +21,9 @@ FactoryBot.define do
     created_at { Time.current }
     status { "#{["未着手", "着手中", "完了"].sample}" }
     valid_date { generate :task_valid_sequence }
+    # 追記
+    priority { "#{['高', '中', '低'].sample}" }
+    # priority { "#{[1, 2, 3].sample}" }
   end
   factory :task_4, class: Task do
     task_name { generate :task_name_sequence }

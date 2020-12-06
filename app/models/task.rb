@@ -20,5 +20,4 @@ class Task < ApplicationRecord
   #   middle: 1,
   #   high: 2
   # }
-  # paginates_per 10
 end

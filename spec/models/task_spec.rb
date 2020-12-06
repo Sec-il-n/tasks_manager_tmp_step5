@@ -15,13 +15,13 @@ describe 'タスクモデル機能', type: :model do
         expect(task.errors.full_messages).to include('詳細を入力してください')
       end
     end
-    # # step1
-    # context 'タスクのタイトルと詳細に内容が記載されているとき' do
-    #   it 'バリデーションに通る' do
-    #     task = FactoryBot.create(:task)
-    #     expect(task).to be_valid
-    #   end
-    # end
+    # step2以降、他のカラムをNotNUllで作成しているので通らない
+    context 'タスクのタイトルと詳細に内容が記載されているとき' do
+      xit 'バリデーションに通る' do
+        task = FactoryBot.create(:task)
+        expect(task).to be_valid
+      end
+    end
   end
   describe '検索機能'do
     let!(:tasks) { FactoryBot.create_list(:task_3, 10) }
