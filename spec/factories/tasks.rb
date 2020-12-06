@@ -11,7 +11,9 @@ FactoryBot.define do
     "タスク#{n}"
   end
   sequence :task_valid_sequence do |n|
+    n = rand(10) * n
     Time.current.since(n.days)
+    # Time.current.since(n.days)
   end
   factory :task_3, class: Task do
     task_name { generate :task_name_sequence }

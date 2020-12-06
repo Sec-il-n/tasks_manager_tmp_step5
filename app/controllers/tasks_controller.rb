@@ -14,16 +14,12 @@ class TasksController < ApplicationController
     end
   end
   def index
-      @tasks = Task.all.recent
       @tasks = Task.page(params[:page]).per(PAR)
-      # @tasks = Task.recent.page(params[:page]).per(PAR)
+      @tasks = @tasks.recent
 
     if params[:order_valid].present?
-      # @tasks = Task.all.recent
-      # @tasks = Task.sort_by{ |task| task.valid_date }
-      @tasks = Task.order_valid
       @tasks = Task.page(params[:page]).per(PAR)
-      # @tasks = @tasks.sort_by{ |task| task.valid_date }
+      @tasks = @tasks.order_valid
 
     elsif params[:status].present? && params[:task_name].present?
       @tasks = @tasks.search_status(params[:status]).search_name_like(params[:task_name])
@@ -35,10 +31,8 @@ class TasksController < ApplicationController
       @tasks = @tasks.search_status(params[:status])
 
     elsif params[:order_priority].present?
-      @tasks = Task.order_priority
       @tasks = Task.page(params[:page]).per(PAR)
-      # @tasks = @tasks.order_priority.page(params[:page].per(PAR))
-      # @tasks = Task.order_priority.page(params[:page].per(PAR))
+      @tasks = @tasks.order_priority
     end
 
   end

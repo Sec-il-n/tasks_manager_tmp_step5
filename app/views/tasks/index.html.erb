@@ -41,7 +41,7 @@
           <td id="task_name"><%= task.task_name %></td>
           <td><%= task.details %></td>
           <td><%= l task.created_at, format: :long %></td>
-          <td><%= l task.valid_date %></td>
+          <td id="valid_shown"><%= l task.valid_date %></td>
           <td id="status_shown"><%= task.status %></td>
           <td><%= task.priority %></td>
           <td><%= link_to t('.show'), task_path(task.id), class: 'btn btn-info button' %></td>
