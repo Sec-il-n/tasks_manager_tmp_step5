@@ -63,11 +63,7 @@ class TasksController < ApplicationController
     @task = Task.find_by(id: params[:id])
   end
   def task_params
-<<<<<<< HEAD
-    params.require(:task).permit(:task_name, :details)
-=======
     params.require(:task).permit(:task_name, :details, :valid_date, :status)
->>>>>>> step3
   end
   # def search_params
   #   params.fetch(:search, {}).permit(:task_name, :status)
