@@ -12,4 +12,9 @@
 <%= @task.status %><br>
 <h3><%= t('dictionary.words.priority') %>:</h3>
 <%= @task.priority %><br>
+
+<h3><%= t('dictionary.words.labels') %>:</h3>
+<% @label_ids.each do |label_id| %>
+  <%= label_name = Label.find_by(id:label_id).label_name %><br>
+<% end %>
 <%= link_to t('.index'), tasks_path, class: 'btn btn-link' %>

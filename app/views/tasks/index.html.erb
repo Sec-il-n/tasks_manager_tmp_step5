@@ -14,6 +14,13 @@
     <!-- <div class="form-group col-md-offset-1 col-md-6"> -->
       <%= f.label t('.status'), :class => 'control-label form_item' %>
       <%= f.select :status, [[t('.Not started'),'未着手'],[t('.Already started'),'着手中'],[t('.done'),'完了']], include_blank: t('.select'), :class => 'form-control' %>
+      <%= f.label t('.label'), :class => 'control-label form_item' %>
+      <%# Label.all userのみ %>
+      <%= f.collection_select :label_id, Label.all, :id, :label_name, include_blank: true %>
+      <%# <%= f.collection_select :label_name, Label.all, :id, :label_name, include_blank: true %>
+      <%# <% Label.all.map{|l| l.label_name}.each do |label_name| %>
+        <%# <%= f.select :label_name, [label_name,], include_blank: t('.select'), :class => 'form-control' %>
+      <%# <% end %>
       <%= f.submit t('.search'), :class => 'btn btn-primary btn-sm active' %>
       <%# <%= f.submit t('.search') %>
     </div>

@@ -7,6 +7,7 @@ ja:
       created_at: 作成日時
       valid_date: 終了期限
       status: ステータス
+      label: ラベル
       show: 詳細
       edit: 編集
       delete: 削除
