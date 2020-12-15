@@ -50,30 +50,19 @@ class TasksController < ApplicationController
         # managers task_id->label_id = label_id
         # 再検証！！　where label_id in (,,,) == .where(id: [])=id: label_ids
         label = Label.find_by(id: params[:label_id])
-        # @tasks = label.managers#.map { |m| m.task_id }
         @tasks = label.managers.map { |m| m.task }
         @tasks = Kaminari.paginate_array(@tasks).page(params[:page]).per(PAR)
-        # task_ids = label.managers.map { |m| m.task_id }
-        # @tasks = @tasks.find_by(id: task_ids)
-        # @tasks = task_ids.map { |id| @tasks.find_by(id: id) }
-        # @tasks = task_ids.map { |id| @tasks.where(id: id) }
-        # @tasks.each do |task|
-        #   Label.find_by(id: params[:label_id]).tasks
-        # @tasks.map { |task| task.managers.search_by_label(params[:label_id]) }
       else
         @tasks = @tasks.recent
-
       end
     end
   end
   def show
     @label_ids = @task.managers.map { |man| man.label_id }
-
   end
   def edit
     #追記
     @task.managers.build
-    # @tasks.labels.build
     # @label = Label.where(user_id: [nil, current_user.id])
   end
   def update

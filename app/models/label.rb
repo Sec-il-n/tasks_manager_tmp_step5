@@ -1,6 +1,6 @@
 class Label < ApplicationRecord
   #  一般ユーザが作成　presence: true
-  validates :label_name, presence: true, length: { maximum: 50 }
+  validates :label_name, presence: true, length: { maximum: 20 }
   # presence: true　バリデーションメッセージが「User入力」になる　-> optional: true
   belongs_to :user, optional: true
   has_many :managers, dependent: :destroy, foreign_key: 'label_id'# 外部キーオプションは「キーが存在しない（中間ではない）テーブルのモデル」に付与
